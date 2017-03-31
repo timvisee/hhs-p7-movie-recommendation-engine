@@ -2,7 +2,16 @@
 A Spark/Hadoop application to suggest new movies to watch to a user,
 based on a big data set.
 
-The current implementation of the algorithm will follow the pseudologic below:
+The current implementation of the algorithm will follow the [pseudologic](pseudologic) below. 
+
+## Requirements
+This project has various requirements:
+
+* Spark with Hadoop, to run the Notebook with the algorithm's code.
+* Data files:
+    * `movies.csv`
+    * `ratings_test.csv`
+    * `ratings_train.csv`
 
 ## Pseudo logic
 This logic is custom, therefore it doesn't have a name.

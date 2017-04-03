@@ -1,4 +1,4 @@
 # Don't include CSV data files
 *.csv
-*.ipynb*
-*meta*
+/.ipynb_checkpoints
+/metastore_db

@@ -1,2 +1,4 @@
 # Don't include CSV data files
 *.csv
+*.ipynb*
+*meta*

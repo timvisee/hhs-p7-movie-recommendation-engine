@@ -4,6 +4,10 @@ based on a big data set.
 
 The current implementation of the algorithm will follow the [pseudologic](pseudologic) below. 
 
+## Performance
+At this moment the algorithm is still quite agressive on using system resources ;)
+![htop](htop.png)
+
 ## Requirements
 This project has various requirements:
 

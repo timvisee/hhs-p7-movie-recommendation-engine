@@ -10,6 +10,10 @@ machine learning training logic.
 The second part loops through all users to suggest the top 10 movies for them
 based on the predicted ratings for that user on movies s/he didn't watch yet.
 
+The engine is available in the [MovieRecommendationEngine.ipynb](MovieRecommendationEngine.ipynb)
+file. Make sure to put the [required](#requirements) data files in the same
+directory as the notebook file.
+
 ## Requirements
 This project has various requirements:
 

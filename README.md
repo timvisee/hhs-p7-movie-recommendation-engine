@@ -1,43 +1,23 @@
-# Movie suggestor
-A Spark/Hadoop application to suggest new movies to watch to a user,
-based on a big data set.
+# Movie Recommendation Engine
+Our try on a movie recommendation engine in Apache Spark using Jupyter Notebook.
 
-The current implementation of the algorithm will follow the [pseudologic](pseudologic) below. 
+Our implementation uses machine learning which is trained by a given data set.
+Then, the system is able to predict ratings a user will give on movies s/he
+didn't watch yet.
 
-## Performance
-At this moment the algorithm is still quite agressive on using system resources ;)
-![htop](htop.png)
+The script consists of two parts. The first part is the dataset parsing and
+machine learning training logic.  
+The second part loops through all users to suggest the top 10 movies for them
+based on the predicted ratings for that user on movies s/he didn't watch yet.
 
 ## Requirements
 This project has various requirements:
 
 * Spark with Hadoop, to run the Notebook with the algorithm's code.
 * Data files:
-    * `movies.csv`
-    * `ratings_test.csv`
+    * `movies_full.csv`
+    * `movies_small.csv`
+    * `ratings_full.csv`
     * `ratings_train.csv`
 
-## Pseudo logic
-This logic is custom, therefore it doesn't have a name.
-Also, there doesn't seem to be a similar existing algorithm at this time.
-
-Logic:
-* Select a user we're going to suggest movies for, we call this user `CLIENT`.
-* We're going to calculate the 'agreement value' for other users.
-  Iterate over all other users, we'll be calling each other user `COMP`.
-    * We'll be giving `COMP` a `COMP_SCORE` to determine the similarity to `CLIENT`.
-    * Loop over each movie COMP watched, we'll be calling these movies `MOVIE`.
-        * Skip the movie if this movie wasn't watched by `CLIENT`.
-        * Calculate the distance between the rating of `CLIENT` and `COMP` on this `MOVIE`. (`|CLIENT_RATING - COMP_RATING| = DISTANCE`)
-        * Normalize the distane: (`DISTANCE - MAX_RATING / 2 = DISTANCE_NORM`)
-        * Add `DISTANCE_NORM` to `COMP_SCORE`. (`COMP_SCORE += DISTANCE_NORM`)
-    * Loop through each `MOVIE`, and give them a `MOVIE_SCORE`.
-        * Loop through all other users, we call `COMP`, and use their `COMP_SCORE`.
-            * If `COMP` hasn't watched this `MOVIE`, skip.
-            * Multiply the rating of COMP for this `MOVIE` by it's `COMP_SCORE` to get `COMP_MOVIE_SCORE`.
-            * Append `COMP_MOVIE_SCORE` to the `MOVIE_SCORE`.
-    * Sort the list of movies by their `MOVIE_SCORE`.
-    * Present this list of movies to the user, as suggestions.
-
-### Logic TODO
-* Take movie genres into consideration.
+The data files can be fetched from [movielens](https://grouplens.org/datasets/movielens/).

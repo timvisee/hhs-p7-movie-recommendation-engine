@@ -22,6 +22,6 @@ This project has various requirements:
     * `movies_full.csv`
     * `movies_small.csv`
     * `ratings_full.csv`
-    * `ratings_train.csv`
+    * `ratings_small.csv`
 
 The data files can be fetched from [movielens](https://grouplens.org/datasets/movielens/).
